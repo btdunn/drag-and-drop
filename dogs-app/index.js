@@ -15,7 +15,9 @@ function displayDogs(dogs) {
 
 function showDog(dog) {
   const dogCard = document.createElement("div");
-  
+  dogCard.classList = 'dog-card'
+  setDogCardDragEvents(dogCard)
+
   const name = document.createElement("h2");
   name.textContent = dog.name; 
   
@@ -28,4 +30,16 @@ function showDog(dog) {
 
 function parseJSON(response) {
   return response.json();
+}
+
+function setDogCardDragEvents(dogCard){
+  dogCard.draggable = true
+  dogCard.addEventListener('drag', () => {
+    dogCard.classList = 'grabbing'
+    console.log('bing')
+  })
+  dogCard.addEventListener('dragStart', () => {
+
+  })
+  
 }

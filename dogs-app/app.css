@@ -12,3 +12,11 @@ div {
   padding: 1rem;
   box-shadow: 2px 2px 5px rgb(211, 211, 211);
 }
+
+.dog-card {
+  cursor: grab;
+}
+
+.grabbing {
+  cursor: grabbing;
+}
