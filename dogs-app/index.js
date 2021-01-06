@@ -14,19 +14,18 @@ function displayDogs(dogs) {
 }
 
 function showDog(dog) {
-  function showDog(dog) {
-    const dogCard = document.createElement("div");
-    dogCard.classList.add('dog-card');
-    dogCard.draggable = "true";
-    setDogCardDragEvents(dogCard);
-    const name = document.createElement("h2");
-    name.textContent = dog.name; 
-    const age = document.createElement("p");
-    age.textContent = `${dog.age} years old`;
-    dogCard.append(name, age);
-    dogsSection.append(dogCard);
-  }
+  const dogCard = document.createElement("div");
+  dogCard.classList.add('dog-card');
+  dogCard.draggable = "true";
+  setDogCardDragEvents(dogCard);
+  const name = document.createElement("h2");
+  name.textContent = dog.name; 
+  const age = document.createElement("p");
+  age.textContent = `${dog.age} years old`;
+  dogCard.append(name, age);
+  dogsSection.append(dogCard);
 }
+
 
 function parseJSON(response) {
   return response.json();
