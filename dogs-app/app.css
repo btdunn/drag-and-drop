@@ -14,9 +14,16 @@ div {
 }
 
 .dog-card {
+  cursor: move;
   cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
 }
-
-.grabbing {
+.dog-card:active {
   cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+.dragging {
+  opacity: 0.5;
 }

@@ -14,32 +14,37 @@ function displayDogs(dogs) {
 }
 
 function showDog(dog) {
-  const dogCard = document.createElement("div");
-  dogCard.classList = 'dog-card'
-  setDogCardDragEvents(dogCard)
-
-  const name = document.createElement("h2");
-  name.textContent = dog.name; 
-  
-  const age = document.createElement("p");
-  age.textContent = `${dog.age} years old`;
-
-  dogCard.append(name, age);
-  dogsSection.append(dogCard);
+  function showDog(dog) {
+    const dogCard = document.createElement("div");
+    dogCard.classList.add('dog-card');
+    dogCard.draggable = "true";
+    setDogCardDragEvents(dogCard);
+    const name = document.createElement("h2");
+    name.textContent = dog.name; 
+    const age = document.createElement("p");
+    age.textContent = `${dog.age} years old`;
+    dogCard.append(name, age);
+    dogsSection.append(dogCard);
+  }
 }
 
 function parseJSON(response) {
   return response.json();
 }
 
-function setDogCardDragEvents(dogCard){
-  dogCard.draggable = true
-  dogCard.addEventListener('drag', () => {
-    dogCard.classList = 'grabbing'
-    console.log('bing')
+function setDogCardDragEvents(dogCard) {
+  dogCard.addEventListener('drag', (event) => {
+    const dragCard = event.target;
+    console.log('drag');
+  });
+  dogCard.addEventListener('dragstart', (event) => {
+    const dragCard = event.target;
+    console.log('dragstart');
+    dragCard.classList.add('dragging');
+  });
+  dogCard.addEventListener('dragend', (event) => {
+    const dragCard = event.target;
+    console.log('dragend');
+    dragCard.classList.remove('dragging');  
   })
-  dogCard.addEventListener('dragStart', () => {
-
-  })
-  
 }
